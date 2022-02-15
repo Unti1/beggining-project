@@ -1,8 +1,6 @@
 *.pyc
 *~
 __pycache__
-pyvenv.cfg
 db.sqlite3
 /static
 .DS_Store
-/Lib
