@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Блог на Джанго</title>
+        <style >
+            body{
+                background: url(https://sun9-57.userapi.com/impg/x9hpFuQOQIYJp-QMXR9vYGn2IG7XqMPuXKe_Hg/LppJq4OkGMI.jpg?size=604x594&quality=96&sign=91b7a245e100dd70aff6ebf8d96b02eb&type=album);
+                background-repeat: repeat-x;
+                background-size: auto 100%;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+            }
+            table{
+            background-color: rgba(0, 0, 0, 0.5);
+            }
+            td{
+                color:rgba(255, 255, 255, 1)
+            }
+            td:hover{
+                background-color:rgba(0, 0, 0, 0.1)
+            }
+            a{
+                color:rgba(255, 0, 0, 1);
+                text-decoration-line: none;
+            }
+            .tt2:hover{
+                background-color:rgba(0, 0, 255, 0.2);
+            }
+        </style>        
+    </head>
+    <body>
+        <div>
+                {% block content%}
+                {% endblock %}
+        </div>
+    </body>
+</html>

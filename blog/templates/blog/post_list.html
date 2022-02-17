@@ -1,56 +1,28 @@
-<html>
-    <head>
-        <title>Django blog</title>
-        <style >
-            body{
-                background: url(https://sun9-57.userapi.com/impg/x9hpFuQOQIYJp-QMXR9vYGn2IG7XqMPuXKe_Hg/LppJq4OkGMI.jpg?size=604x594&quality=96&sign=91b7a245e100dd70aff6ebf8d96b02eb&type=album);
-                background-repeat: repeat-x;
-                background-size: auto 100%;
-            }
-            table{
-            background-color: rgba(0, 0, 0, 0.5);
-            }
-            td{
-                color:rgba(255, 255, 255, 1)
-            }
-            td:hover{
-                background-color:rgba(0, 0, 0, 0.1)
-            }
-            a{
-                color:rgba(255, 0, 0, 1);
-                text-decoration-line: none;
-            }
-            .tt2:hover{
-                background-color:rgba(0, 0, 255, 0.2);
-            }
-        </style>        
-    </head>
-    <body>
-        <div>
-            <table border="1">
-                <tr>
-                    <td align="center">
-                        <table border="3" height="50">
-                            <a href="/"><td class="tt2"><a href="">Главная</a></td></a>
-                            <td class="tt2"><a href="">Страница1</a></td> 
-                            <td class="tt2"><a href="">Страница2</a></td> 
-                            <td class="tt2"><a href="">Страница3</a></td> 
-                            <td class="tt2"><a href="">Страница4</a></td> 
-                            <td class="tt2"><a href="">Страница5</a></td>
-                        </table>
-                    </td>
-                </tr>
-                {% for post in posts %}
-                <tr>
-                    <td>
-                    Автор: <b>{{post.author}}</b>
-                    <br>Название: {{post.title}}
-                    <br>Текст: {{post.text}}
-                    <br>Время публикации: <i>{{post.published_date}}</i>
-                    </td>
-                </tr>
-                {% endfor %}
+{% extends 'blog/basic.html' %}
+
+{% block content %}
+<table border="1">
+    <tr>
+        <td align="center">
+            <table border="3" height="50">
+                <a href="/"><td class="tt2"><a href="">Главная</a></td></a>
+                <td class="tt2"><a href="">Страница1</a></td> 
+                <td class="tt2"><a href="">Страница2</a></td> 
+                <td class="tt2"><a href="">Страница3</a></td> 
+                <td class="tt2"><a href="">Страница4</a></td> 
+                <td class="tt2"><a href="">Страница5</a></td>
             </table>
-        </div>
-    </body>
-</html>
+        </td>
+    </tr>
+    {% for post in posts %}
+    <tr>
+        <td>
+        Автор: <b>{{post.author}}</b>
+        <br>Название: <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
+        <br>Текст: {{post.text|linebreaksbr}}
+        <br>Опубликовано: <i>{{post.published_date}}</i>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

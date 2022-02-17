@@ -1,0 +1,22 @@
+{% extends 'blog/basic.html' %}
+
+{% block content %}
+
+<table border="1">
+    <tr>
+        <td align="center">
+            <a>{{post.title}}</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br>{{post.text|linebreaksbr}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+        Автор: <b>{{post.author}}</b> <i>(опубликовано: {{post.published_date}})</i>
+        </td>
+    </tr>
+</table>
+{% endblock %}
